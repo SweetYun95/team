@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>rock-scissors-paper_game</title>
+      <title>rock-scissors-paper_game1</title>
       <link rel="stylesheet" href="./css/common.css" />
       <link rel="stylesheet" href="./css/main.css" />
    </head>
@@ -32,6 +32,7 @@
                </div>
                <div class="start-bnt">
                   <div class="gohome-btn">
+                     <!-- 초기 메인 화면 이동 링크 확인 할 것!! -->
                      <button onclick="location.href='index.html'">홈으로</button>
                   </div>
                   <div class="letgo-btn">
@@ -72,13 +73,10 @@
                   <p>최종 점수: <span id="final-score">0</span>점</p>
                </div>
                <div class="score-push_to_rank">
-                  <!-- 플레이어 이름(닉네임)을 입력 받아 전송을 누르면 localStorage에 이름과 랭킹 저장하여 랭킹 스코어보드 화면에 등수 출력  -->
-                  <!-- 10/20/30 판별 구분 되게 닉네임 --점수-- -->
+                  <p>랭킹에 등록하려면 닉네임을 입력하세요</p>
                   <label for="username">닉네임: </label>
                   <input type="text" name="username" id="username" placeholder="닉네임을 입력하세요" />
-                  <button class="push-btn">
-                     <!-- 누르면 랭킹 화면으로 이동됨 -->
-                  </button>
+                  <button class="push-btn" id="save-score-btn">전송</button>
                </div>
                <div class="reroll-btn">
                   <div class="re">
@@ -88,6 +86,7 @@
                      <button id="to-start-btn">처음으로</button>
                   </div>
                   <div class="gohome-btn">
+                     <!-- 초기 메인 화면 이동 링크 확인 할 것!! -->
                      <button onclick="location.href='index.html'">홈으로</button>
                   </div>
                </div>

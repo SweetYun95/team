@@ -117,3 +117,40 @@ toStartBtn.addEventListener('click', () => {
    gameStartSection.style.display = 'block'
 })
 
+// 랭킹으로 전송
+const pushBtn = document.getElementById('save-score-btn')
+const usernameInput = document.getElementById('username')
+
+pushBtn.addEventListener('click', () => {
+   const username = usernameInput.value.trim()
+
+   if (username === '') {
+      alert('닉네임을 입력하세요!')
+      return
+   }
+
+   const finalScore = win * 50 + draw * 10
+   const roundKey = `${totalRounds}-round` // e.g., "10-round"
+
+   // 기존 저장값 가져오기 (배열 형태로 저장)
+   const rankingData = JSON.parse(localStorage.getItem(roundKey)) || []
+
+   // 현재 사용자 점수 추가
+   rankingData.push({
+      name: username,
+      score: finalScore,
+   })
+
+   // 점수 내림차순 정렬
+   rankingData.sort((a, b) => b.score - a.score)
+
+   // 상위 10개만 유지 (원하면 생략 가능)
+   const trimmedRanking = rankingData.slice(0, 10)
+
+   // 저장
+   localStorage.setItem(roundKey, JSON.stringify(trimmedRanking))
+
+   // 랭킹 화면으로 이동
+   window.location.href = 'ranking.html' // <-- 랭킹 html 파일명 확인해 주세요
+
+})
