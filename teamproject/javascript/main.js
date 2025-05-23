@@ -5,10 +5,10 @@ const userDiv = document.querySelector('.user')
 const comDiv = document.querySelector('.com_zone')
 const roundSelect = document.getElementById('round-select')
 const startBtn = document.querySelector('.letgo-btn')
-const gameStartSection = document.querySelector('.game2__start')
-const gameMainSection = document.querySelector('.game2')
-const gameEndSection = document.querySelector('.game2__end')
-const roundDisplay = document.querySelector('.game2__round')
+const gameStartSection = document.querySelector('.game1__start')
+const gameMainSection = document.querySelector('.game1')
+const gameEndSection = document.querySelector('.game1__end')
+const roundDisplay = document.querySelector('.game1__round')
 const gameRecord = document.querySelector('.game-record')
 const gameScore = document.querySelector('.game-score')
 const restartBtn = document.querySelector('.re')
@@ -152,5 +152,4 @@ pushBtn.addEventListener('click', () => {
 
    // 랭킹 화면으로 이동
    window.location.href = 'ranking.html' // <-- 랭킹 html 파일명 확인해 주세요
-
 })

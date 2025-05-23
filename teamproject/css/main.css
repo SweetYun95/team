@@ -2,13 +2,13 @@
 
 /* 모든 섹션 공통 내부 정렬 */
 .game-rule,
-.game2__rock-scissors-paper,
+.game1__rock-scissors-paper,
 .game-finish {
    margin: 0 auto;
 }
 
 /* 게임 시작 화면 */
-.game2__start {
+.game1__start {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -82,7 +82,7 @@
 
 /* 게임 메인 화면 */
 /* 전체 섹션 중앙 정렬 */
-.game2 {
+.game1 {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -93,7 +93,7 @@
 }
 
 /* 가위바위보 영역 */
-.game2__rock-scissors-paper {
+.game1__rock-scissors-paper {
    background: #fff;
    border-radius: 16px;
    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -160,7 +160,7 @@
 }
 
 /* 게임 종료 화면 */
-.game2__end {
+.game1__end {
    display: flex;
    justify-content: center;
    align-items: center;
