@@ -116,3 +116,4 @@ toStartBtn.addEventListener('click', () => {
    gameEndSection.style.display = 'none'
    gameStartSection.style.display = 'block'
 })
+
