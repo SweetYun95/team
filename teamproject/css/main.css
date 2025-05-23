@@ -1,0 +1,231 @@
+@charset "uft-8";
+
+/* 모든 섹션 공통 내부 정렬 */
+.game-rule,
+.game2__rock-scissors-paper,
+.game-finish {
+   margin: 0 auto;
+}
+
+/* 게임 시작 화면 */
+.game2__start {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background: #f9f9f9;
+}
+
+.game-rule {
+   background: white;
+   padding: 40px 30px;
+   border-radius: 12px;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+   width: 90%;
+   max-width: 480px;
+   text-align: center;
+}
+
+.rule__caption h2 {
+   font-size: 1.6rem;
+   margin-bottom: 10px;
+   color: #333;
+}
+
+.rule__caption p {
+   font-size: 0.95rem;
+   color: #666;
+   line-height: 1.5;
+}
+
+.rule-select {
+   margin: 20px 0;
+}
+
+.rule-select label {
+   font-weight: bold;
+   margin-right: 10px;
+}
+
+.rule-select select {
+   padding: 8px 12px;
+   border-radius: 6px;
+   border: 1px solid #ccc;
+   font-size: 1rem;
+}
+
+.start-bnt {
+   display: flex;
+   justify-content: space-between;
+   gap: 20px;
+   margin-top: 24px;
+}
+
+.start-bnt .gohome-btn button,
+.start-bnt .letgo-btn button {
+   flex: 1;
+   padding: 12px 20px;
+   font-size: 1rem;
+   border-radius: 8px;
+   border: none;
+   cursor: pointer;
+   background-color: #ffce00;
+   color: #222;
+   font-weight: bold;
+   transition: background-color 0.3s ease;
+}
+
+.start-bnt .gohome-btn button:hover,
+.start-bnt .letgo-btn button:hover {
+   background-color: #f1b800;
+}
+
+/* 게임 메인 화면 */
+/* 전체 섹션 중앙 정렬 */
+.game2 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 40px 20px;
+   min-height: 100vh;
+   background-color: #f7f7f7;
+   font-family: 'Arial', sans-serif;
+}
+
+/* 가위바위보 영역 */
+.game2__rock-scissors-paper {
+   background: #fff;
+   border-radius: 16px;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   padding: 40px;
+   max-width: 500px;
+   width: 100%;
+   text-align: center;
+}
+
+/* VS 영역: 좌우 정렬 */
+.rock-scissors-paper__VS {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 2rem;
+   margin-bottom: 30px;
+   padding: 0 20px;
+}
+
+.user,
+.com_zone {
+   flex: 1;
+   padding: 10px;
+}
+
+.user {
+   text-align: left;
+}
+
+.com_zone {
+   text-align: right;
+}
+
+/* 버튼 영역 */
+.btn {
+   display: flex;
+   justify-content: space-between;
+   gap: 12px;
+   margin-bottom: 30px;
+}
+
+.btn button {
+   flex: 1;
+   padding: 12px 0;
+   font-size: 1.2rem;
+   background-color: #ffe082;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   transition: 0.2s ease-in-out;
+}
+
+.btn button:hover {
+   background-color: #ffd54f;
+   transform: translateY(-2px);
+}
+
+/* 결과 출력 */
+.game-result {
+   font-size: 1.3rem;
+   font-weight: bold;
+   color: #d32f2f;
+   margin-top: 10px;
+}
+
+/* 게임 종료 화면 */
+.game2__end {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background-color: #f0f0f0;
+   font-family: 'Arial', sans-serif;
+}
+
+.game-finish {
+   background: #fff;
+   border-radius: 16px;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   padding: 40px 30px;
+   width: 90%;
+   max-width: 480px;
+   text-align: center;
+}
+
+.game-record p,
+.game-score p {
+   font-size: 1.1rem;
+   margin: 8px 0;
+   color: #444;
+}
+
+.game-record span,
+.game-score span {
+   font-weight: bold;
+   color: #222;
+}
+
+.reroll-btn {
+   display: flex;
+   justify-content: space-between;
+   gap: 16px;
+   margin-top: 30px;
+}
+
+.reroll-btn > div {
+   flex: 1;
+}
+
+.reroll-btn button {
+   width: 100%;
+   padding: 12px;
+   font-size: 1rem;
+   border: none;
+   border-radius: 8px;
+   background-color: #4caf50;
+   color: white;
+   font-weight: bold;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.reroll-btn button:hover {
+   background-color: #388e3c;
+}
+
+/* 홈 버튼만 노란색 강조 */
+.reroll-btn .gohome-btn button {
+   background-color: #ffca28;
+   color: #333;
+}
+
+.reroll-btn .gohome-btn button:hover {
+   background-color: #f4b400;
+}
