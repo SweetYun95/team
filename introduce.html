@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+      <script>
+         const me = {
+            name: '윤승영',
+            religion: '기독교',
+            mbti: 'infp',
+            gender: '남자',
+            birthday: '1995-02-12',
+            get age() {
+               const today = new Date()
+               const birthDate = new Date(this.birthday)
+               let age = today.getFullYear() - birthDate.getFullYear()
+
+               const monthDiff = today.getMonth() - birthDate.getMonth()
+               const dayDiff = today.getDate() - birthDate.getDate()
+               if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                  age--
+               }
+
+               return age
+            },
+            hobby: [['헬스', '크로스핏', '홈트레이닝'], '독서', '필사'],
+            favoriteGames: ['Rainbow6:sige'],
+            introduce: function () {
+               return `안녕하세요, 전 ${this.religion}인 ${this.name}입니다. ${this.birthday.slice(2, 4)}년생, ${this.age}살 입니다.`
+            },
+            want: function () {
+               return `잘부탁드립니다.`
+            },
+         }
+
+         document.write(me.introduce())
+         document.write(`<br/>`)
+         document.write(`좋아하는 게임은${me.favoriteGames}입니다.`)
+         document.write(`<br/>`)
+         document.write(me.want())
+      </script>
+   </body>
+</html>
