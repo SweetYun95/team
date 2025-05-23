@@ -66,7 +66,7 @@ buttons.forEach((button) => {
       resultDiv.textContent = getResult(userText, comText)
 
       if (currentRound === totalRounds) {
-         setTimeout(showEndScreen, 1000)
+         setTimeout(showEndScreen, 100)
       } else {
          currentRound++
          updateRoundDisplay()
@@ -88,7 +88,7 @@ function showEndScreen() {
    gameScore.innerHTML = `<p>총 점수: ${score}점</p>`
 }
 
-// 다시 시작 버튼 (선택적으로 연결)
+// 다시 시작 버튼 (판수 그대로 다시 시작)
 if (restartBtn) {
    restartBtn.addEventListener('click', () => {
       currentRound = 1
