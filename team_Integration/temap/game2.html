@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Dice Game | MINI GAMES</title>
+      <link rel="stylesheet" href="./css/main.css" />
+      <style>
+         #giveup,
+         #push,
+         #answer,
+         #restart {
+            display: none;
+         }
+         .anser-li {
+            list-style: none;
+         }
+         h2 {
+            color: white;
+            font-weight: bold;
+            font-size: 2em;
+         }
+         h3 {
+            color: black;
+            font-weight: bold;
+            font-size: 1.2em;
+         }
+         #rule-wrap {
+            margin: 0 auto;
+            border: 3px solid skyblue;
+            background: lightblue;
+            padding: 10px;
+            max-width: 800px;
+         }
+         li {
+            margin-left: 10px;
+            color: black;
+            list-style: decimal;
+            text-align: left;
+         }
+         li > ul > li {
+            font-size: 0.9em;
+            list-style: circle;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <nav class="nav">
+            <div id="nav-container">
+               <a href="index.html" class="logo">
+                  <img src="./images/logo.jpg" alt="로고" height="70px" />
+               </a>
+               <button class="nav-toggle" aria-label="메뉴 열기">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+               </button>
+               <ul class="menu">
+                  <li><a href="./game1.html">GAME 1</a></li>
+                  <li><a href="./game3.html">GAME 3</a></li>
+                  <li><a href="./score.html">SCORE!</a></li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+      <main>
+         <section class="game-header">
+            <h1>숫자야구게임</h1>
+            <p>주사위를 굴려 나온 숫자로 점수를 겨루는 운 기반 게임, 간단한 룰로 빠르게 즐기세요!</p>
+         </section>
+         <section class="how-to-play">
+            <div id="rule-wrap">
+               <h3>게임규칙</h3>
+               <ol>
+                  <li>컴퓨터가 미리 정한 서로다른 숫자 4자리의 정답을 맞추는 게임입니다.</li>
+                  <li>플레이어는 정답이라고 생각하는 숫자 조합을 입력합니다.</li>
+                  <li>
+                     컴퓨터는 플레이어가 제출한 숫자 조합에 따라 힌트를 제공합니다
+                     <ul>
+                        <li>스트라이크(S) : 숫자와 위치가 정답과 동일함.</li>
+                        <li>볼(B) : 숫자가 정답에 포함되어있지만 위치가 다름</li>
+                        <li>아웃(O) : 숫자 정답에 포함되어있지 않음</li>
+                        <li>예시1) 정답:1234, 제출:3284 => 2S1B1O</li>
+                        <li>예시2) 정답:5678, 제출:6578 => 2S2B0O</li>
+                        <li>예시3) 정답:2345, 제출:6789 => 0S0B4O</li>
+                     </ul>
+                  </li>
+                  <li>컴퓨터가 제공한 힌트를 조합해서 정답에 근접해 나갑니다.</li>
+                  <li>최종적으로 정답을 맞추면 (10-정답까지 걸린 횟수)가 점수로 기록됩니다.(최소 0점)</li>
+                  <li>포기하기 버튼을 누르면 정답이 공개되고 -1점처리 됩니다.</li>
+               </ol>
+            </div>
+         </section>
+         <section class="game-area">
+            <!-- <p style="color: #aaa">(여기에 게임이 구현될 예정입니다)</p> -->
+            <h2>숫자야구게임</h2>
+
+            <button id="start" class="play-btn">시작하기</button>
+            <div>
+               <p id="anser-p">정답은 : 시작전</p>
+               <input type="text" inputmode="numeric" maxlength="4" name="answer" id="answer" placeholder="1234" /><button id="push">입력하기</button><br />
+               <ul id="answer-ul"></ul>
+               <button id="giveup">포기하기</button>
+               <button id="restart">다시시작</button>
+               <p id="recent-result"></p>
+            </div>
+         </section>
+         <div class="game-actions">
+            <a href="ranking.html" class="play-btn">점수를 확인하세요!</a>
+            <a href="index.html" class="play-btn">메인으로</a>
+         </div>
+      </main>
+
+      <footer class="site-footer">
+         <div class="footer-container">
+            <span>© 2025 MINI GAMES. All rights reserved.</span>
+            <span class="footer-links"> <a href="#">이용약관</a> | <a href="#">개인정보처리방침</a> </span>
+         </div>
+      </footer>
+
+      <script>
+         const navToggle = document.querySelector('.nav-toggle')
+         const menu = document.querySelector('.menu')
+         navToggle.addEventListener('click', function () {
+            menu.classList.toggle('active')
+         })
+      </script>
+      <script>
+         let currect
+         let count = 1
+         let isgame = false
+         const start = document.querySelector('#start')
+         const push = document.querySelector('#push')
+         const giveup = document.querySelector('#giveup')
+         const answerP = document.querySelector('#anser-p')
+         const answer = document.querySelector('#answer')
+         const answerUl = document.querySelector('#answer-ul')
+         const recentResult = document.querySelector('#recent-result')
+         const restart = document.querySelector('#restart')
+         function numberBaseball() {}
+
+         function createCurrect() {
+            let digits = Array.from({ length: 10 }, (e, i) => i)
+            for (let i = 9; i > 0; i--) {
+               let j = Number((Math.random() * (i + 1)).toFixed(0))
+               ;[digits[i], digits[j]] = [digits[j], digits[i]]
+            }
+            currect = digits.slice(0, 4)
+            console.log(currect)
+         }
+
+         function checkNumber(number) {
+            if (isNaN(number) || number.toString().length != 4) {
+               alert('숫자를 제대로 입력해주세요')
+               return ''
+            }
+            let S = 0
+            let B = 0
+            let O = 0
+            let numlist = number.toString().split('')
+            for (let i in numlist) {
+               if (currect[i] == numlist[i]) {
+                  S++
+               } else if (currect.includes(Number(numlist[i]))) {
+                  B++
+               } else {
+                  O++
+               }
+            }
+            return `${S}S${B}B${O}O`
+         }
+
+         function gameResult(b) {
+            let recentPoint = Number(localStorage.getItem('game3')) || 0
+            if (b) {
+               localStorage.setItem('game3', recentPoint + (10 - count >= 0 ? 10 - count : 0))
+               recentResult.textContent = `직전 경기 결과 : 성공!(${count - 1}회)`
+            } else {
+               localStorage.setItem('game3', recentPoint - 1)
+               recentResult.textContent = `직전 경기 결과 : 실패...`
+            }
+            answerP.textContent = `정답은 : ${currect.join('')}`
+            answer.disabled = true
+            push.removeEventListener('click', pushEvent)
+            giveup.style.display = 'none'
+            restart.style.display = 'block'
+         }
+         function reset() {
+            answerP.textContent = `정답은 : 시작전`
+            giveup.style.display = 'none'
+            answer.style.display = 'none'
+            push.style.display = 'none'
+            count = 1
+            isgame = false
+            currect = undefined
+            answerUl.innerHTML = ''
+            restart.style.display = 'none'
+            answer.disabled = false
+         }
+         function gameStart() {
+            if (isgame) return
+            createCurrect()
+            answerP.textContent = `정답은 : 비공개`
+            giveup.style.display = 'block'
+            answer.style.display = 'inline-block'
+            push.style.display = 'inline-block'
+            count = 1
+            isgame = true
+         }
+
+         restart.addEventListener('click', (e) => {
+            reset()
+            gameStart()
+            push.addEventListener('click', pushEvent)
+         })
+         start.addEventListener('click', (e) => {
+            gameStart()
+         })
+
+         function pushEvent() {
+            let result = checkNumber(answer.value)
+            if (!result) return
+            const newli = document.createElement('li')
+            newli.className = 'anser-li'
+            newli.textContent = `${count++}회차 결과 : ${answer.value}=${result}`
+            answerUl.appendChild(newli)
+            answer.value = ''
+            if (result == '4S0B0O') gameResult(true)
+         }
+         push.addEventListener('click', pushEvent)
+
+         giveup.addEventListener('click', (e) => {
+            gameResult(false)
+         })
+      </script>
+   </body>
+</html>

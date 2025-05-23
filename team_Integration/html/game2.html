@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Dice Game | MINI GAMES</title>
+      <link rel="stylesheet" href="./css/main.css" />
+   </head>
+   <body>
+      <header>
+         <nav class="nav">
+            <div id="nav-container">
+               <a href="index.html" class="logo">
+                  <img src="./images/logo.jpg" alt="로고" height="70px" />
+               </a>
+               <button class="nav-toggle" aria-label="메뉴 열기">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+               </button>
+               <ul class="menu">
+                  <li><a href="./game1.html">GAME 1</a></li>
+                  <li><a href="./game3.html">GAME 3</a></li>
+                  <li><a href="./score.html">SCORE!</a></li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+      <main>
+         <section class="game-header">
+            <h1>Dice Game</h1>
+            <p>주사위를 굴려 나온 숫자로 점수를 겨루는 운 기반 게임, 간단한 룰로 빠르게 즐기세요!</p>
+         </section>
+         <section class="how-to-play">
+            <h2>게임 방법</h2>
+            <ul>
+               <li>주사위 굴리기 버튼을 클릭하세요.</li>
+               <li>나온 숫자만큼 점수를 얻습니다.</li>
+               <li>최고 점수에 도전해보세요!</li>
+            </ul>
+         </section>
+         <section class="game-area">
+            <p style="color: #aaa">(여기에 게임이 구현될 예정입니다)</p>
+         </section>
+         <div class="game-actions">
+            <a href="ranking.html" class="play-btn">점수를 확인하세요!</a>
+            <a href="index.html" class="play-btn">메인으로</a>
+         </div>
+      </main>
+
+      <footer class="site-footer">
+         <div class="footer-container">
+            <span>© 2025 MINI GAMES. All rights reserved.</span>
+            <span class="footer-links"> <a href="#">이용약관</a> | <a href="#">개인정보처리방침</a> </span>
+         </div>
+      </footer>
+
+      <script>
+         const navToggle = document.querySelector('.nav-toggle')
+         const menu = document.querySelector('.menu')
+         navToggle.addEventListener('click', function () {
+            menu.classList.toggle('active')
+         })
+      </script>
+   </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Score | MINI GAMES</title>
+      <link rel="stylesheet" href="./css/main.css" />
+   </head>
+   <body>
+      <header>
+         <nav class="nav">
+            <div id="nav-container">
+               <a href="index.html" class="logo">
+                  <img src="./images/logo.jpg" alt="로고" height="70px" />
+               </a>
+               <button class="nav-toggle" aria-label="메뉴 열기">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+               </button>
+               <ul class="menu">
+                  <li><a href="./game1.html">GAME 1</a></li>
+                  <li><a href="./game2.html">GAME 2</a></li>
+                  <li><a href="./game3.html">GAME 3</a></li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+      <main>
+         <section class="site-description">
+            <h1>Score / Ranking</h1>
+            <p>여기에 점수가 표시될 예정입니다.</p>
+         </section>
+         <div class="game-actions">
+            <a href="ranking.html" class="play-btn">점수를 확인하세요!</a>
+
+            <a href="index.html" class="play-btn">메인으로</a>
+         </div>
+      </main>
+      <footer class="site-footer">
+         <div class="footer-container">
+            <span>© 2025 MINI GAMES. All rights reserved.</span>
+            <span class="footer-links"> <a href="#">이용약관</a> | <a href="#">개인정보처리방침</a> </span>
+         </div>
+      </footer>
+
+      <script>
+         const navToggle = document.querySelector('.nav-toggle')
+         const menu = document.querySelector('.menu')
+         navToggle.addEventListener('click', function () {
+            menu.classList.toggle('active')
+         })
+      </script>
+   </body>
+</html>

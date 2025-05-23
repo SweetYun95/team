@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>점수</title>
+   </head>
+   <body>
+      <h1>게임 점수 종합</h1>
+      <input type="text" id="game1" placeholder="가위바위보게임 점수" />
+      <input type="text" id="game3_score" placeholder="스네이크게임 점수" />
+      <input type="text" id="game3" placeholder="숫자야구게임 점수" />
+      <br />
+      <button onclick="saveScore()">계산</button>
+      <button onclick="Clear()">초기화</button>
+
+      <p id="Greet"></p>
+      <button onclick="Retry()" id="Retry" style="display: none"></button>
+      <script>
+         const sc1 = document.querySelector('#game1')
+         const sc2 = document.querySelector('#game3_score')
+         const sc3 = document.querySelector('#game3')
+         const greet = document.querySelector('#Greet')
+         const retry = document.querySelector('#Retry')
+         greet.textContent = `재밌게 즐기셨나요?`
+         //저장
+
+         function saveScore() {
+            localStorage.setItem('scInput1', sc1.value)
+            localStorage.setItem('scInput2', sc2.value)
+            localStorage.setItem('scInput3', sc3.value)
+            showGreet()
+         }
+
+         //불러오기
+
+         function Retry() {
+            location.reload()
+         }
+
+         function showGreet() {
+            const saved1 = localStorage.getItem('scInput1')
+            const saved2 = localStorage.getItem('scInput2')
+            const saved3 = localStorage.getItem('scInput3')
+
+            if (saved1 && saved2 && saved3) {
+               const sum = Number(saved1) + Number(saved2) + Number(saved3)
+               result = sum / 3
+               greet.textContent = `게임에서 얻으신 점수의 평균은  ${result.toFixed(0)}점입니다, 축하합니다!`
+               retry.textContent = `다시 도전해보세요!`
+               retry.style.display = 'block'
+               return
+            }
+         }
+         function Clear() {
+            localStorage.removeItem('scInput1')
+            localStorage.removeItem('scInput2')
+            localStorage.removeItem('scInput3')
+            localStorage.clear()
+            location.reload()
+         }
+      </script>
+   </body>
+</html>

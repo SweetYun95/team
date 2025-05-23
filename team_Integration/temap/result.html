@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+      <!-- 사용자가 웹사이트에서 입력한 이름을 저장 후, 나중에 다시 방문했을 때 자동으로 불러오기 -->
+      <h1>게임 점수 종합</h1>
+      <input type="text" id="scoreInput1" placeholder="1번 게임 점수 입력" />
+      <input type="text" id="scoreInput2" placeholder="2번 게임 점수 입력" />
+      <input type="text" id="scoreInput3" placeholder="3번 게임 점수 입력" />
+      <br />
+      <button onclick="saveScore()">계산</button>
+      <button onclick="Clear()">초기화</button>
+      <p id="Greet"></p>
+      <button onclick="Retry()" id="Retry" style="display: none"></button>
+      <script>
+         const sc1 = document.querySelector('#scoreInput1')
+         const sc2 = document.querySelector('#scoreInput2')
+         const sc3 = document.querySelector('#scoreInput3')
+         const greet = document.querySelector('#Greet')
+         const retry = document.querySelector('#Retry')
+
+         //저장
+
+         function saveScore() {
+            // const name = document.querySelector('#nameInput').value
+            localStorage.setItem('scInput1', sc1.value)
+            localStorage.setItem('scInput2', sc2.value)
+            localStorage.setItem('scInput3', sc3.value)
+            showGreet()
+         }
+
+         //불러오기
+         function Retry() {
+            location.reload()
+         }
+
+         function showGreet() {
+            const saved1 = localStorage.getItem('scInput1')
+            const saved2 = localStorage.getItem('scInput2')
+            const saved3 = localStorage.getItem('scInput3')
+            //saved가 존재하면 (null은 무조건 false)
+
+            if (saved1 && saved2 && saved3) {
+               const sum = Number(saved1) + Number(saved2) + Number(saved3)
+               result = sum / 3
+               greet.textContent = `게임에서 얻으신 점수의 평균은  ${result.toFixed(0)}점입니다, 축하합니다!`
+               retry.textContent = `다시 도전해보세요!`
+               retry.style.display = 'block'
+               return
+            } else {
+               greet.textContent = ``
+               retry.textContent = ''
+               return
+            }
+         }
+
+         /*if (result <= 10) {
+               retry.textContent = '좀 더 힘내봅시다! 다시 도전해보시겠습니까?'
+            } else if (result <= 60) {
+               retry.textContent = ' 다시 도전해보시겠습니까?'
+            } else if (result <= 90) {
+            }*/
+
+         function Clear() {
+            localStorage.removeItem('scInput1')
+            localStorage.removeItem('scInput2')
+            localStorage.removeItem('scInput3')
+            localStorage.clear()
+            location.reload()
+         }
+      </script>
+   </body>
+</html>

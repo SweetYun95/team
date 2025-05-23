@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>뱀사과먹어요</title>
+   </head>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+      }
+      body {
+         /* margin-top: 100px; 마진으로 조절 */
+      }
+      #board {
+         position: fixed;
+      }
+      #snake {
+         position: absolute;
+      }
+      #apple {
+         position: absolute;
+      }
+      #tail {
+         position: absolute;
+         width: 10px;
+         height: 10px;
+         background-color: white;
+      }
+   </style>
+   <body>
+      <div id="board">
+         <div id="snake"></div>
+         <div id="apple"></div>
+      </div>
+   </body>
+   <script>
+      let game3_score
+      let object = {
+         event: {
+            run: true,
+            game_over: false,
+            use_key: true,
+            move_right: false,
+            move_left: false,
+            move_up: false,
+            move_down: false,
+            past_key: null,
+         },
+         snake: {
+            pos_x: 100,
+            pos_y: 240,
+            length: 1,
+         },
+         snake_tail: [],
+         apple: {
+            pos_x: 300,
+            pos_y: 240,
+         },
+         board: {
+            width: 500,
+            height: 500,
+         },
+      }
+   </script>
+   <script>
+      const id_board = document.querySelector('#board')
+      const id_snake = document.querySelector('#snake')
+      const id_apple = document.querySelector('#apple')
+      id_board.style.width = `${object.board.width}px`
+      id_board.style.height = `${object.board.height}px`
+      id_board.style.background = 'black'
+      id_snake.style.background = 'white'
+      id_snake.style.width = '10px'
+      id_snake.style.height = '10px'
+      id_apple.style.width = '10px'
+      id_apple.style.height = '10px'
+      id_apple.style.background = 'salmon'
+      id_snake.style.top = '200px'
+      function game_over() {
+         if (object.event.game_over == true) {
+            object.event.use_key = false
+            object.event.run = false
+            object.snake.pos_x = 250
+            object.snake.pos_y = 240
+            object.event.game_over = false
+            game3_score = object.snake.length
+            alert(`${object.snake.length}점 입니다`)
+            object.snake.length = 1
+            clear()
+         }
+      }
+      function use_key() {
+         if (object.event.use_key == false) return
+         window.onkeydown = (e) => {
+            const key = e.key
+            if ((object.past_key == 'w' && key == 's') || (object.past_key == 's' && key == 'w') || (object.past_key == 'a' && key == 'd') || (object.past_key == 'd' && key == 'a')) return
+            object.event.move_down = false
+            object.event.move_up = false
+            object.event.move_left = false
+            object.event.move_right = false
+            if (key == 'w') object.event.move_up = true
+            if (key == 's') object.event.move_down = true
+            if (key == 'a') object.event.move_left = true
+            if (key == 'd') object.event.move_right = true
+            object.past_key = e.key
+         }
+      }
+      function event_move() {
+         id_snake.style.left = `${object.snake.pos_x}px`
+         id_snake.style.top = `${object.snake.pos_y}px`
+         id_apple.style.left = `${object.apple.pos_x}px`
+         id_apple.style.top = `${object.apple.pos_y}px`
+         if (object.event.move_right) object.snake.pos_x += 10
+         if (object.event.move_left) object.snake.pos_x -= 10
+         if (object.event.move_down) object.snake.pos_y += 10
+         if (object.event.move_up) object.snake.pos_y -= 10
+      }
+      function event_game_over() {
+         if (object.snake.pos_x < 0 || object.snake.pos_x > object.board.width) object.event.game_over = true
+         if (object.snake.pos_y < 0 || object.snake.pos_y > object.board.height) object.event.game_over = true
+      }
+      function eat_apple() {
+         if (object.apple.pos_x == object.snake.pos_x && object.apple.pos_y == object.snake.pos_y) {
+            object.apple.pos_x = (Math.floor(Math.random() * 49) + 1) * 10 //1~49
+            object.apple.pos_y = (Math.floor(Math.random() * 49) + 1) * 10
+            object.snake.length++
+            long_long_snake_tail()
+         }
+      }
+      function long_long_snake_tail() {
+         const long_tail = document.createElement('div')
+         long_tail.id = 'tail'
+         long_tail.className = `tail${object.snake.length}`
+         id_board.appendChild(long_tail)
+      }
+      function folowing_head() {
+         if (object.snake.length <= 1) return
+         for (i = 2; i <= object.snake.length; i++) {
+            let class_tail = document.querySelector(`.tail${i}`)
+            if (i == 2) {
+               class_tail.style.left = `${object.snake.pos_x}px`
+               class_tail.style.top = `${object.snake.pos_y}px`
+               let regist = [object.snake.pos_x, object.snake.pos_y]
+               object.snake_tail[i] = regist
+            } else {
+               class_tail.style.left = `${object.snake_tail[i - 1][0]}px`
+               class_tail.style.top = `${object.snake_tail[i - 1][1]}px`
+               let regist2 = [object.snake_tail[i - 1][0], object.snake_tail[i - 1][1]]
+               object.snake_tail[i] = regist2
+            }
+         }
+      }
+      function clear() {
+         game3_score = 0
+         object = {
+            event: {
+               run: true,
+               game_over: false,
+               use_key: true,
+               move_right: false,
+               move_left: false,
+               move_up: false,
+               move_down: false,
+               past_key: null,
+            },
+            snake: {
+               pos_x: 100,
+               pos_y: 240,
+               length: 1,
+            },
+            snake_tail: [],
+            apple: {
+               pos_x: 300,
+               pos_y: 240,
+            },
+            board: {
+               width: 500,
+               height: 500,
+            },
+         }
+      }
+      function run() {
+         event_move()
+         eat_apple()
+         game_over()
+         event_game_over()
+         folowing_head()
+      }
+      function slow() {}
+      function logic() {
+         use_key()
+      }
+      if (object.event.run == true) {
+         setInterval(run, 20)
+         setInterval(slow, 100)
+         setInterval(logic, 1)
+      }
+   </script>
+</html>

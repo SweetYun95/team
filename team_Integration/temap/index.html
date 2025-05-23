@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>1조 미니게임 사이트</title>
+      <link rel="stylesheet" href="./css/main.css" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+      <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet" />
+   </head>
+   <body class="index-page">
+      <header>
+         <nav class="nav">
+            <div id="nav-container">
+               <!-- 로고 -->
+               <a href="index.html" class="logo">
+                  <img src="./images/logo.jpg" alt="로고" height="70px" />
+               </a>
+
+               <!-- 햄버거메뉴 -->
+               <button class="nav-toggle" aria-label="메뉴 열기">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+               </button>
+
+               <!-- 메뉴 -->
+               <ul class="menu">
+                  <li><a href="./game1.html">GAME 1</a></li>
+                  <li><a href="./game2.html">GAME 2</a></li>
+                  <li><a href="./game3.html">GAME 3</a></li>
+                  <li><a href="./score.html">SCORE!</a></li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+
+      <!-- 사이트 설명 -->
+      <section class="site-description">
+         <h1>Welcome to MINI GAMES!</h1>
+         <p>
+            다양한 미니게임을 쉽고 빠르게 즐길 수 있는 1조의 미니게임 사이트입니다.<br />
+            가위바위보, 주사위, 스네이크 등 간단하면서도 중독성 있는 게임들로<br />
+            친구들과 점수 경쟁도 하고, 언제 어디서나 재미있게 플레이하세요!
+         </p>
+      </section>
+
+      <!-- 메인 -->
+      <main>
+         <section class="game-cards">
+            <div class="game-card">
+               <img src="./images/rock_paper_scissors.jpg" alt="게임1 이미지" />
+               <h2>rock paper scissors</h2>
+               <p>컴퓨터와 가위, 바위, 보로 승부를 겨루는 간단한 대결 게임, 운과 전략으로 승리를 쟁취하세요!</p>
+               <a href="game1.html" class="play-btn">PLAY</a>
+            </div>
+            <div class="game-card">
+               <img src="./images/dice_game.jpg" alt="게임2 이미지" />
+               <h2>dice game</h2>
+               <p>주사위를 굴려 나온 숫자로 점수를 겨루는 운 기반 게임, 간단한 룰로 빠르게 즐기세요!</p>
+               <a href="game2.html" class="play-btn">PLAY</a>
+            </div>
+            <div class="game-card">
+               <img src="./images/snake_game.jpg" alt="게임3 이미지" />
+               <h2>snake game</h2>
+               <p>뱀이 사과를 먹으며 몸이 길어지는 고전 아케이드 게임, 벽이나 자신을 피하며 최고 점수를 노리세요!</p>
+               <a href="game3.html" class="play-btn">PLAY</a>
+            </div>
+         </section>
+      </main>
+
+      <!-- 푸터 -->
+      <footer class="site-footer">
+         <div class="footer-container">
+            <span>© 2025 MINI GAMES. All rights reserved.</span>
+            <span class="footer-links"> <a href="#">이용약관</a> | <a href="#">개인정보처리방침</a> </span>
+         </div>
+      </footer>
+
+      <script>
+         const navToggle = document.querySelector('.nav-toggle')
+         const menu = document.querySelector('.menu')
+         navToggle.addEventListener('click', function () {
+            menu.classList.toggle('active')
+         })
+      </script>
+   </body>
+</html>

@@ -1,0 +1,320 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+/* /* 다른 css를 같이 가져가는 것 */
+@import url('./reset.css');
+@import url('./common.css');
+
+/* 게임 카드 3개  */
+
+.game-cards {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 64px;
+   margin-top: 16px;
+   margin-bottom: 100px;
+}
+
+.game-card {
+   background: rgba(255, 255, 255, 0.12);
+   border-radius: 36px;
+   box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.22);
+   padding: 40px 56px;
+   width: 600px;
+   min-height: 400px;
+   text-align: center;
+   color: #fff;
+   transition: transform 0.22s, box-shadow 0.22s;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-start;
+}
+.game-card:hover {
+   transform: translateY(-10px) scale(1.04);
+   box-shadow: 0 8px 32px 0 #3a86ff80;
+}
+.game-card img {
+   width: 100%;
+   max-width: 600px;
+   height: 300px;
+   object-fit: cover;
+   margin-bottom: 16px;
+   border-radius: 16px;
+   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.game-card h2 {
+   font-size: 2.2rem;
+   margin: 18px 0 12px 0;
+   color: #ffb400;
+   font-family: 'Orbitron', sans-serif;
+   font-weight: 900;
+}
+.game-card p {
+   font-size: 1.1rem;
+   margin-bottom: 24px;
+   color: #e3eaf2;
+   line-height: 1.5;
+   word-break: keep-all;
+}
+.game-actions {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
+   margin-top: 24px;
+   width: 100%;
+}
+.play-btn,
+.share-btn {
+   display: block;
+   background: #ffb400;
+   color: #23294a;
+   font-weight: 900;
+   padding: 10px 24px;
+   border-radius: 24px;
+   text-decoration: none;
+   font-family: 'Orbitron', sans-serif;
+   font-size: 1rem;
+   transition: background 0.2s, color 0.2s;
+   border: none;
+   cursor: pointer;
+   margin: 0 auto;
+   text-align: center;
+   min-width: 120px;
+}
+.play-btn:hover,
+.share-btn:hover {
+   background: #fff;
+   color: #23294a;
+}
+
+@media (max-width: 768px) {
+   .game-card {
+      width: 90vw; /* 화면 너비의 90% */
+      min-width: 0; /* 최소 너비 제한 해제 */
+      min-height: 0; /* 필요시 */
+      padding: 24px 8px; /* 패딩도 줄여줌 */
+      box-sizing: border-box;
+   }
+   .game-card:last-child {
+      padding-bottom: 20px;
+   }
+   .game-cards {
+      gap: 24px;
+      margin-top: 0;
+      margin-bottom: 10px;
+   }
+   .game-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2 / 1;
+      max-width: 400px;
+      border-radius: 16px;
+      object-fit: cover;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+      display: block;
+   }
+   .game-card p {
+      font-size: 0.95rem;
+   }
+   .game-header,
+   .how-to-play {
+      padding-left: 16px;
+      padding-right: 16px;
+   }
+   .site-footer {
+      margin-top: 30px;
+   }
+   .site-description {
+      margin: 160px 0 0 0;
+      padding-left: 5px;
+      padding-right: 5px;
+   }
+   .site-description h1 {
+      font-size: 1.3rem;
+   }
+   .site-description p {
+      font-size: 0.98rem;
+      max-width: 100%;
+      word-break: keep-all;
+   }
+}
+
+html,
+body {
+   height: 100%;
+   min-height: 100vh;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+main {
+   flex: 1 0 auto;
+   padding-top: 40px;
+}
+
+.site-footer {
+   flex-shrink: 0;
+}
+
+.game-header,
+.site-description {
+   margin-top: 120px;
+}
+
+.game-header {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 32px;
+   text-align: center;
+}
+
+.game-header h1 {
+   font-size: 2.4rem;
+   color: #ffb400;
+   font-family: 'Orbitron', sans-serif;
+   font-weight: 900;
+   margin-bottom: 10px;
+}
+
+.game-header p {
+   font-size: 1.1rem;
+   color: #e3eaf2;
+   margin-bottom: 0;
+   line-height: 1.6;
+}
+
+.how-to-play {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 32px;
+   text-align: center;
+}
+
+.how-to-play h2 {
+   font-size: 1.2rem;
+   color: #3a86ff;
+   margin-bottom: 8px;
+}
+
+.how-to-play ul {
+   color: #fff;
+   font-size: 1rem;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   line-height: 1.7;
+}
+
+.how-to-play ul li {
+   margin-bottom: 4px;
+}
+
+.game-area {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   margin: 32px auto 0 auto;
+   min-height: 60px;
+   width: 100%;
+   max-width: 480px;
+}
+
+body.index-page {
+   /* min-height: auto !important; */
+   /* height: auto !important; */
+}
+
+.site-description {
+   text-align: center;
+   margin: 180px 0 2px 0;
+}
+.site-description h1 {
+   font-family: 'Orbitron', sans-serif;
+   color: #ffb400;
+   font-size: 2.1rem;
+   margin-bottom: 10px;
+   font-weight: 900;
+   letter-spacing: 1px;
+}
+.site-description p {
+   font-size: 1.1rem;
+   color: #e3eaf2;
+   line-height: 1.6;
+   max-width: 600px;
+   margin: 0 auto;
+}
+@media (max-width: 768px) {
+   .site-description {
+      margin: 160px 0 1px 0;
+   }
+   .site-description h1 {
+      font-size: 1.3rem;
+   }
+   .site-description p {
+      font-size: 0.98rem;
+   }
+}
+
+.score-header {
+   margin-top: 120px;
+}
+@media (max-width: 768px) {
+   .score-header {
+      margin-top: 100px;
+   }
+   .site-footer {
+      margin-top: 30px;
+   }
+   .site-description {
+      padding-left: 5px;
+      padding-right: 5px;
+   }
+   .site-description h1 {
+      font-size: 1.3rem;
+   }
+   .site-description p {
+      font-size: 0.98rem;
+      max-width: 100%;
+      word-break: keep-all;
+   }
+   .game-cards {
+      gap: 24px;
+      margin-top: 0;
+      margin-bottom: 10px;
+   }
+   .game-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2 / 1;
+      max-width: 400px;
+      border-radius: 16px;
+      object-fit: cover;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+      display: block;
+   }
+   .game-card p {
+      font-size: 0.95rem;
+   }
+   .game-header,
+   .how-to-play {
+      padding-left: 16px;
+      padding-right: 16px;
+   }
+}
