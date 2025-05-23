@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Document</title>
+      <title>rock-scissors-paper_game</title>
       <link rel="stylesheet" href="./css/common.css" />
       <link rel="stylesheet" href="./css/main.css" />
    </head>
@@ -73,7 +73,12 @@
                </div>
                <div class="score-push_to_rank">
                   <!-- 플레이어 이름(닉네임)을 입력 받아 전송을 누르면 localStorage에 이름과 랭킹 저장하여 랭킹 스코어보드 화면에 등수 출력  -->
-                   <!-- 10/20/30 판별 구분 되게 닉네임 --점수-- -->
+                  <!-- 10/20/30 판별 구분 되게 닉네임 --점수-- -->
+                  <label for="username">닉네임: </label>
+                  <input type="text" name="username" id="username" placeholder="닉네임을 입력하세요" />
+                  <button class="push-btn">
+                     <!-- 누르면 랭킹 화면으로 이동됨 -->
+                  </button>
                </div>
                <div class="reroll-btn">
                   <div class="re">
